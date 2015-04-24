@@ -1,8 +1,7 @@
 <?php
-
-namespace Ra;
-
 /**
+ * Router.php
+ *
  * This core class manages the mapping between the url requested to
  * the action required to be performed by the system.
  *
@@ -12,7 +11,14 @@ namespace Ra;
  * the action - a lower case name that is a method of the Controller class
  * the params - array of left overs
  *
+ * PHP version 5.3
+ *
+ * @package   Ra
+ * @author    Stoo Goff and Robbie Scourou
+ * @copyright 2007 (c) Stoo Goff and Robbie Scourou
+ * @license   MIT <http://opensource.org/licenses/MIT>
  */
+namespace Ra;
 
 class Router {
 	protected $default;

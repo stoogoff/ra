@@ -1,18 +1,26 @@
 <?php
-
-namespace Ra;
-
 /**
+ * Settings.php
+ *
  * The Settings class holds global configuration information and any non-persistent data which needs
  * to be passed around the system.
+ *
+ * PHP version 5.3
+ *
+ * @package   Ra
+ * @author    Stoo Goff
+ * @copyright 2007 (c) Stoo Goff
+ * @license   MIT <http://opensource.org/licenses/MIT>
  */
+namespace Ra;
+
 class Settings extends Object {
 	public function __construct() {
 		$this->setArray(array(
 			'docRoot'    => $_SERVER['DOCUMENT_ROOT'] . '/',
 			'webRoot'    => $_SERVER['HTTP_HOST'],
 			'templates'  => $_SERVER['DOCUMENT_ROOT'] . '/media/tpl/',
-			'baldrRoot'  => dirname(__FILE__) . '/',
+			'raRoot'     => dirname(__FILE__) . '/',
 			'components' => realpath(dirname(__FILE__) . '/../../components') . '/',
 			'vendor'     => realpath(dirname(__FILE__) . '/..') . '/',
 		));

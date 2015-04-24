@@ -1,10 +1,18 @@
 <?php
-
+/**
+ * XMLFormat.php
+ *
+ * Handles XML formatting for templates.
+ *
+ * PHP version 5.3
+ *
+ * @package   Ra\Formatting
+ * @author    Stoo Goff
+ * @copyright 2007 (c) Stoo Goff
+ * @license   MIT <http://opensource.org/licenses/MIT>
+ */
 namespace Ra\Formatting;
 
-/**
- * Handles XML formatting for templates.
- */
 class XMLFormat extends HTMLFormat {
 	/**
 	 * Output text/xml content type.

@@ -1,5 +1,14 @@
 <?php
-
+/**
+ * AutoLoader.php
+ *
+ * PHP version 5.3
+ *
+ * @package   Ra
+ * @author    Stoo Goff
+ * @copyright 2007 (c) Stoo Goff
+ * @license   MIT <http://opensource.org/licenses/MIT>
+ */
 namespace Ra;
 
 require_once 'Object.php';
@@ -14,7 +23,7 @@ class AutoLoader {
 
 		$this->settings = $settings ? $settings : new Settings();
 
-		$this->addPath($this->settings->baldrRoot);
+		$this->addPath($this->settings->raRoot);
 		$this->addPath($this->settings->components);
 	}
 

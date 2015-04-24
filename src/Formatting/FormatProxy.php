@@ -1,11 +1,19 @@
 <?php
-
-namespace Ra\Formatting;
-
 /**
+ * FormatProxy.php
+ *
  * FormatProxy is the base wrapper class for templates which render something other than HTML.
  * This class acts as a proxy class for the model supplied to it in the constructor.
+ *
+ * PHP version 5.3
+ *
+ * @package   Ra\Formatting
+ * @author    Stoo Goff
+ * @copyright 2007 (c) Stoo Goff
+ * @license   MIT <http://opensource.org/licenses/MIT>
  */
+namespace Ra\Formatting;
+
 abstract class FormatProxy extends \Ra\Object {
 	protected $model;
 
@@ -15,9 +23,6 @@ abstract class FormatProxy extends \Ra\Object {
 		$this->initialise();
 	}
 
-	/**
-	 * 
-	 */
 	protected abstract function initialise();
 
 	/**

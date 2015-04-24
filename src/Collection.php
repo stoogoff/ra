@@ -1,11 +1,20 @@
 <?php
-
+/**
+ * Collection.php
+ *
+ * Collection represents a basic list class which implements Iterator, ArrayAccess and Countable. This class can be treated
+ * almost identically to an array *except* is_array will return false. IT has some helper methods influenced by the underscore
+ * JavaScript library.
+ *
+ * PHP version 5.3
+ *
+ * @package   Ra
+ * @author    Stoo Goff
+ * @copyright 2007 (c) Stoo Goff
+ * @license   MIT <http://opensource.org/licenses/MIT>
+ */
 namespace Ra;
 
-/**
- * CoreList represents a basic list class which implements Iterator, ArrayAccess and Countable. This class can be treated
- * almost identically to an array *except* is_array will return false.
- */
 class Collection implements \Iterator, \ArrayAccess, \Countable {
 	private   $position = 0;
 	protected $__data   = array();

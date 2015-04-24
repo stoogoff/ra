@@ -1,13 +1,19 @@
 <?php
-
-namespace Ra;
-
 /**
  * Application.php
  *
  * Basic Application class. This class handles setting up the database, storing modules, aliasing,
  * as well as generating and running the controller.
+ *
+ * PHP version 5.3
+ *
+ * @package   Ra
+ * @author    Stoo Goff
+ * @copyright 2007 (c) Stoo Goff
+ * @license   MIT <http://opensource.org/licenses/MIT>
  */
+namespace Ra;
+
 class Application {
 	protected $router;
 	protected $settings;
