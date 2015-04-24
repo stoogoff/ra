@@ -55,7 +55,6 @@ class BlogController extends \Ra\Controller {
 	public function index() {
 		return "Hello"; # returned to the client
 	}
-}
 
 	# called by the URL /blog/view/<parameter>
 	public function view($id) {
