@@ -19,14 +19,14 @@ Assuming a folder structure something like:
 
 Your webserver should be set up to forward all page requirests to a single file (usually index.php).
 
-index.php gets everything started:
+**index.php** gets everything started:
 
 ``` PHP
-require_once 'settings.local'; # any site specific settings, this can be named anything
+require_once 'settings.local'; # any site specific settings this is optional and can be named anything
 require_once '../lib/vendor/Ra/AutoLoader.php';
 
 $settings = new Ra\Settings();
-$settings->setArray($config); # settings from settings.local
+$settings->setArray($config); # from settings.local
 
 $loader = new Ra\AutoLoader($settings);
 $app = new Ra\Application($settings);
