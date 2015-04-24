@@ -21,8 +21,8 @@ class Settings extends Object {
 			'webRoot'    => $_SERVER['HTTP_HOST'],
 			'templates'  => $_SERVER['DOCUMENT_ROOT'] . '/media/tpl/',
 			'raRoot'     => dirname(__FILE__) . '/',
-			'components' => realpath(dirname(__FILE__) . '/../../components') . '/',
-			'vendor'     => realpath(dirname(__FILE__) . '/..') . '/',
+			'components' => realpath($_SERVER['DOCUMENT_ROOT'] . '/../lib/components') . '/',
+			'vendor'     => realpath($_SERVER['DOCUMENT_ROOT'] . '/../lib/vendor') . '/',
 		));
 	}
 

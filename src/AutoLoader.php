@@ -43,11 +43,10 @@ class AutoLoader {
 
 	public function __autoload($class) {
 		$this->settings->log($this->locations);
-			$class = str_replace('Ra\\', '', $class);
-			$class = str_replace('\\', '/', $class);
+		$class = str_replace('Ra\\', '', $class);
+		$class = str_replace('\\', '/', $class);
 
 		foreach($this->locations as $location) {
-
 			if($this->loadFile($location . '/' . $class . '.php'))
 				return;
 		}
