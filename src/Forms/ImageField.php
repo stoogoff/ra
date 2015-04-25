@@ -41,7 +41,7 @@ class ImageField extends UploadField {
 
 			# create path if it doesn't exist
 			if(!file_exists(dirname($fullPath))) {
-				mkdir(dirname($fullPath), FILE_PERMISSION);
+				mkdir(dirname($fullPath), 0777, true);
 			}
 
 			move_uploaded_file($value['tmp_name'], $fullPath);
