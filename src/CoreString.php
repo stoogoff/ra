@@ -25,10 +25,12 @@ class CoreString {
 					break;
 				}
 			}
+
+			return $text;
 		}
 
 		if(!$length)
-			$length = strlen($text);
+			return $text;
 
 		# it's short so nothing to do
 		if(strlen($text) <= $length)
