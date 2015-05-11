@@ -247,14 +247,22 @@ class Collection implements \Iterator, \ArrayAccess, \Countable {
 		return $this->size() === 0 ? null : $this->__data[0];
 	}
 
-	public function tail() {
-		return new Collection($this->size() <= 1 ? array() : array_slice($this->__data, 1));
+	public function first() {
+		return $this->head();
+	}
+
+	public function tail($start = 1) {
+		return new Collection($this->size() <= 1 ? array() : array_slice($this->__data, $start));
+	}
+
+	public function rest($start = 1) {
+		return $this->tail($start);
 	}
 
 	public function last() {
 		$size = $this->size();
 
-		return $size === 0 ? none : $this->__data[$size - 1];
+		return $size === 0 ? null : $this->__data[$size - 1];
 	}
 
 	protected function propertyFromItem($item, $property) {
