@@ -23,6 +23,11 @@ class ArrayField extends FormField {
 	}
 
 	public function setValue($value) {
+		if(trim($value) === '') {
+			$this->value = null;
+			return;
+		}
+
 		$this->value = explode($this->separator1, $value);
 
 		if($this->separator2) {
