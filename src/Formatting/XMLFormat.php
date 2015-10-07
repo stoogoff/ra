@@ -30,10 +30,18 @@ class XMLFormat extends HTMLFormat {
 	public function __toString() {
 		$root = get_class($this->model);
 
-		return "<?xml version=\"1.0\" encoding=\"UTF-8\" ?>\n" . $this->toXml($root, $this->__data);
+		if(strpos($root, '\\') !== false) {
+			$root = explode('\\', $root);
+			$root = $root[count($root) - 1];
+		}
+
+		return "<?xml version=\"1.0\" encoding=\"UTF-8\" ?>\n" . $this->toXml($root, $this->toObject());
 	}
 
 	protected function toXml($node, $object) {
+		# TODO correct format of tags which begin with a number or an underscore
+		$node = str_replace(' ', '-', $node);
+
 		$str = "<$node";
 
 		if(empty($object))
@@ -46,15 +54,15 @@ class XMLFormat extends HTMLFormat {
 				$str .= $this->toXml($key, $value);
 		}
 		else if(is_object($object)) {
-			$vars = get_object_vars(($object));
+			$vars = get_object_vars($object);
 
 			foreach($vars as $key => $value)
 				$str .= $this->toXml($key, $value);
 		}
 		else if(is_array($object)) {
-			# TODO - $key is wrong here
+			# use the $node name as the $key for numeric indexed arrays (not hashes)
 			foreach($object as $key => $value)
-				$str .= $this->toXml($key, $value);
+				$str .= $this->toXml(is_int($key) ? $node : $key, $value);
 		}
 		else
 			$str .= $this->format($object);

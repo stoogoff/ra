@@ -63,13 +63,7 @@ class Object {
 			foreach($object->__data as $key => $value)
 				$return[$key] = $this->toObjectVars($value);
 		}
-		else if(is_object($object)) {
-			$vars = get_object_vars(($object));
-
-			foreach($vars as $key => $value)
-				$return[$key] = $this->toObjectVars($value);
-		}
-		else if(is_array($object)) {
+		else if(is_array($object) || (is_object($object) && $object instanceof Collection)) {
 			foreach($object as $key => $value) {
 				if(is_object($value) && method_exists($value, 'toObject')) {
 					$return[$key] = $value->toObject();
@@ -78,6 +72,12 @@ class Object {
 					$return[$key] = $this->toObjectVars($value);
 				}
 			}
+		}
+		else if(is_object($object)) {
+			$vars = get_object_vars(($object));
+
+			foreach($vars as $key => $value)
+				$return[$key] = $this->toObjectVars($value);
 		}
 		else
 			$return = $object;
