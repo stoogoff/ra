@@ -50,8 +50,13 @@ abstract class View {
 		foreach($separators as $separator) {
 			$path = $this->basePath . $controller . $separator . $action . '.' . $extension;
 
+			# LOG
+			$this->settings->log("TEMPLATE $path");
+
 			if(file_exists($path)) {
 				$template = $controller . $separator . $action;
+
+				$this->settings->log("<strong>USING TEMPLATE:</strong> $template");
 				break;
 			}
 		}
@@ -68,16 +73,18 @@ abstract class View {
 			$this->model = new View::$ExtensionMap[$extension]($this->model);
 
 		# use JSON template for JSONP requests
-		if($extension == 'jsonp')
+		if($extension == 'jsonp') {
 			$extension = 'json';
+		}
 
 		$template = $this->basePath . $path . '.' . $extension;
 
 		$this->template = file_get_contents($template);
 
 		# no template was found
-		if($this->template == false)
+		if($this->template == false) {
 			throw new CoreException("Template file '{$template}' not found.", 404);
+		}
 	}
 
 	public abstract function render();

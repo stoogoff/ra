@@ -31,8 +31,9 @@ class Request extends Object {
 	public function getHeaders($header = false) {
 		$headers = getallheaders();
 
-		if($header)
+		if($header) {
 			return isset($headers[$header]) ? $headers[$header] : null;
+		}
 
 		return $headers;
 	}

@@ -128,4 +128,14 @@ class CoreException extends \Exception {
 
 Throwing a PHP exception anywhere in your application will result in a `CoreException` being thrown with a `code` of **500** and the original exception as the inner exception. You can also throw a `CoreException` anywhere to get the same behaviour.
 
-There is a built in error controller which is used to render any exception. You need to set up appropriate templates to render the view (e.g. `error_view.html` or `error/view.html`).
+A basic `ErrorController` needs to be created to handle exceptions, this is as simple as:
+
+``` PHP
+class ErrorController extends \Ra\Controller {
+	public function view($error) {
+		return $this->render();
+	}
+}
+```
+
+The error message can be logged as required. You need to set up appropriate templates to render the view (e.g. `error_view.html` or `error/view.html`).

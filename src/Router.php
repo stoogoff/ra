@@ -57,8 +57,9 @@ class Router {
 		$alias = new Object();
 
 		# strip off the query string
-		if(strpos($url, '?') !== false)
+		if(strpos($url, '?') !== false) {
 			$url = substr($url, 0, strpos($url, '?'));
+		}
 
 		# check for aliases
 		foreach($this->aliases as $regex => $route) {

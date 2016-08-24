@@ -29,12 +29,14 @@ class CoreString {
 			return $text;
 		}
 
-		if(!$length)
+		if(!$length) {
 			return $text;
+		}
 
 		# it's short so nothing to do
-		if(strlen($text) <= $length)
+		if(strlen($text) <= $length) {
 			return $text;
+		}
 
 		while(preg_match('/[a-zA-Z-]/', $text[$length]))
 			$length--;

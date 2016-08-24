@@ -43,8 +43,9 @@ class CoreException extends \Exception {
 	public function __construct($message, $code = 500, Exception $innerException = null) {
 		parent::__construct($message, $code);
 
-		if($innerException != null)
+		if($innerException != null) {
 			$this->innerException = $innerException;
+		}
 	}
 
 	/**
@@ -77,8 +78,9 @@ class CoreException extends \Exception {
 	public function __toString() {
 		$str = parent::__toString();
 
-		if($this->innerException != null)
+		if($this->innerException != null) {
 			$str .= "\nInner Exception: " . $this->innerException->__toString();
+		}
 
 		return $str;
 	}
